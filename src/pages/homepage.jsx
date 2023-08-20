@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faTwitter,
 	faGithub,
@@ -23,6 +22,7 @@ import myArticles from "../data/articles";
 import homepagePhoto from "./../assets/homepage.jpg"
 
 import "./styles/homepage.css";
+import Anchor from './../components/Anchor/Anchor';
 
 const Homepage = () => {
 	const [stayLogo, setStayLogo] = useState(false);
@@ -69,6 +69,20 @@ const Homepage = () => {
 		borderRadius: stayLogo ? "50%" : "none",
 		boxShadow: stayLogo ? "0px 4px 10px rgba(0, 0, 0, 0.25)" : "none",
 	};
+	const WebArticles = myArticles.map((article, index) => (
+		<div
+			className="homepage-article"
+			key={(index + 1).toString()}
+		>
+			<Article
+				key={(index + 1).toString()}
+				date={article.date}
+				title={article.title}
+				description={article.description}
+				link={"/article/" + (index + 1)}
+			/>
+		</div>
+	))
 
 	return (
 		<React.Fragment>
@@ -116,56 +130,12 @@ const Homepage = () => {
 						</div>
 
 						<div className="homepage-socials">
-							<a
-								href={INFO.socials.twitter}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faTwitter}
-									className="homepage-social-icon"
-								/>
-							</a>
-							<a
-								href={INFO.socials.github}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faGithub}
-									className="homepage-social-icon"
-								/>
-							</a>
-							<a
-								href={INFO.socials.stackoverflow}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faStackOverflow}
-									className="homepage-social-icon"
-								/>
-							</a>
-							<a
-								href={INFO.socials.instagram}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faInstagram}
-									className="homepage-social-icon"
-								/>
-							</a>
-							<a
-								href={`mailto:${INFO.main.email}`}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faMailBulk}
-									className="homepage-social-icon"
-								/>
-							</a>
+							<Anchor href = {INFO.socials.twitter} icon = {faTwitter}/>
+							<Anchor href = {INFO.socials.github} icon = {faGithub}/>
+							<Anchor href = {INFO.socials.stackoverflow} icon = {faStackOverflow}/>
+							<Anchor href = {INFO.socials.instagram} icon = {faInstagram}/>
+							<Anchor href = {INFO.main.email} icon = {faTwitter}/>
+							<Anchor href = {INFO.socials.twitter} icon = {faMailBulk}/>
 						</div>
 
 						<div className="homepage-projects">
@@ -174,7 +144,7 @@ const Homepage = () => {
 
 						<div className="homepage-after-title">
 							
-								{myArticles.map((article, index) => (
+								{/* {myArticles.map((article, index) => (
 									<div
 										className="homepage-article"
 										key={(index + 1).toString()}
@@ -187,9 +157,8 @@ const Homepage = () => {
 											link={"/article/" + (index + 1)}
 										/>
 									</div>
-								))}
-
-
+								))} */}
+								{WebArticles}
 							<div className="homepage-works">
 								<Works />
 							</div>

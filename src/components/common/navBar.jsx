@@ -5,6 +5,7 @@ import "./styles/navBar.css";
 import { useState } from "react";
 
 const NavBar = (props) => {
+	// eslint-disable-next-line react/prop-types
 	const { active } = props;
 	const [open,setOpen] = useState (false);
 

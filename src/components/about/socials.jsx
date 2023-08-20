@@ -1,5 +1,4 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
 	faTwitter,
@@ -11,81 +10,16 @@ import {
 import INFO from "../../data/user";
 
 import "./styles/socials.css";
+import AnchorSocial from './../AnchorSocial/AnchorSocial';
 
 const Socials = () => {
 	return (
 		<div className="socials">
-			<div className="social">
-				<a href={INFO.socials.twitter} target="_blank" rel="noreferrer">
-					<div className="social-icon">
-						<FontAwesomeIcon
-							icon={faTwitter}
-							className="social-icon"
-						/>
-					</div>
-					<div className="social-text">Follow on Twitter</div>
-				</a>
-			</div>
-
-			<div className="social">
-				<a href={INFO.socials.github} target="_blank" rel="noreferrer">
-					<div className="social-icon">
-						<FontAwesomeIcon
-							icon={faGithub}
-							className="social-icon"
-						/>
-					</div>
-					<div className="social-text">Follow on GitHub</div>
-				</a>
-			</div>
-
-			<div className="social">
-				<a
-					href={INFO.socials.linkedin}
-					target="_blank"
-					rel="noreferrer"
-				>
-					<div className="social-icon">
-						<FontAwesomeIcon
-							icon={faLinkedin}
-							className="social-icon"
-						/>
-					</div>
-					<div className="social-text">Follow on LinkedIn</div>
-				</a>
-			</div>
-
-			<div className="social">
-				<a
-					href={INFO.socials.instagram}
-					target="_blank"
-					rel="noreferrer"
-				>
-					<div className="social-icon">
-						<FontAwesomeIcon
-							icon={faInstagram}
-							className="social-icon"
-						/>
-					</div>
-					<div className="social-text">Follow on Instagram</div>
-				</a>
-			</div>
-
-			<div className="email">
-				<div className="email-wrapper">
-					<a
-						href={`mailto:${INFO.main.email}`}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<div className="social-icon">
-							<FontAwesomeIcon icon={faEnvelope} />
-						</div>
-
-						<div className="social-text">{INFO.main.email}</div>
-					</a>
-				</div>
-			</div>
+			<AnchorSocial class = {"social"} href = {INFO.socials.twitter} icon = {faTwitter} title = {"Follow on Twitter"}/>
+			<AnchorSocial class = {"social"} href = {INFO.socials.github} icon = {faGithub} title = {"Follow on GitHub"}/>
+			<AnchorSocial class = {"social"} href = {INFO.socials.linkedin} icon = {faLinkedin} title = {"Follow on LinkedIn"}/>
+			<AnchorSocial class = {"social"} href = {INFO.socials.instagram} icon = {faInstagram} title = {"Follow on Instagram"}/>
+			<AnchorSocial class = {"email-wrapper"} href={`mailto:${INFO.main.email}`} icon = {faEnvelope} title = {INFO.main.email}/>
 		</div>
 	);
 };

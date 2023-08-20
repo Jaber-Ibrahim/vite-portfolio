@@ -1,9 +1,10 @@
-import React from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./styles/card.css";
 
 const Card = (props) => {
+	// eslint-disable-next-line react/prop-types
 	const { icon, title, body } = props;
 	return (
 		<div className="card">

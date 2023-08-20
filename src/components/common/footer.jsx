@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./styles/footer.css";
+import LiFooter from "../LiFooter/LiFooter";
 
 const Footer = () => {
 	return (
@@ -9,21 +10,11 @@ const Footer = () => {
 			<div className="footer">
 				<div className="footer-links">
 					<ul className="footer-nav-link-list">
-						<li className="footer-nav-link-item">
-							<Link to="/">Home</Link>
-						</li>
-						<li className="footer-nav-link-item">
-							<Link to="/about">About</Link>
-						</li>
-						<li className="footer-nav-link-item">
-							<Link to="/projects">Projects</Link>
-						</li>
-						<li className="footer-nav-link-item">
-							<Link to="/articles">Articles</Link>
-						</li>
-						<li className="footer-nav-link-item">
-							<Link to="/contact">Contact</Link>
-						</li>
+						<LiFooter title="Home" link = {"/"}/>
+						<LiFooter title="About" link = {"/about"}/>
+						<LiFooter title="Projects" link = {"/projects"}/>
+						<LiFooter title="Articles" link = {"/articles"}/>
+						<LiFooter title="Contact" link = {"/contact"}/>
 					</ul>
 				</div>
 
